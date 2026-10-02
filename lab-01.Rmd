@@ -1,6 +1,6 @@
 ---
 title: "Lab 01 - UK Attractions"
-author: "issyclarke"
+author: "issyclarke1"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -98,11 +98,11 @@ _Which attraction had exactly 565,772 visitors in 2022?_
 
 ```{r Ex_d}
 #visitors %>% filter(n_2022 = "565772")
- %>% 
+
 
 ### Exercise e.
 
-_How many attraction had more than 1 million visitors in 2022?_
+#How many attraction had more than 1 million visitors in 2022?_
 
 ```{r Ex_e}
 #visitors %>% 

@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="issyclarke" />
+<meta name="author" content="issyclarke1" />
 
 <meta name="date" content="2026-10-02" />
 
@@ -351,7 +351,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Lab 01 - UK Attractions</h1>
-<h4 class="author">issyclarke</h4>
+<h4 class="author">issyclarke1</h4>
 <h4 class="date">2026-10-02</h4>
 
 </div>
@@ -368,7 +368,7 @@ visitors &lt;- read_csv(&quot;data/UK-visitor-numbers.csv&quot;)</code></pre>
 <h1>Wrangling Data</h1>
 <div id="question-1" class="section level2">
 <h2>Question 1</h2>
-<p><em>How many tourist attractions are there in the data set?</em></p>
+<p>_How many tourist attractions are there in the data set? 348</p>
 <pre class="r"><code>visitors %&gt;% count()</code></pre>
 <pre><code>## # A tibble: 1 × 1
 ##       n
@@ -380,7 +380,23 @@ visitors &lt;- read_csv(&quot;data/UK-visitor-numbers.csv&quot;)</code></pre>
 the data set by <code>region</code>.</em></p>
 <pre class="r"><code># Delete the comment &#39;#&#39; symbol at the start of the next line and complete the code. 
 
-#visitors %&gt;% count(_____)</code></pre>
+
+visitors %&gt;% count(region)</code></pre>
+<pre><code>## # A tibble: 12 × 2
+##    region                       n
+##    &lt;chr&gt;                    &lt;int&gt;
+##  1 East Midlands                9
+##  2 East of England             26
+##  3 London                      39
+##  4 North East                  25
+##  5 North West                  21
+##  6 Northern Ireland             9
+##  7 Scotland                    97
+##  8 South East                  34
+##  9 South West                  30
+## 10 Wales                        2
+## 11 West Midlands               35
+## 12 Yorkshire and the Humber    21</code></pre>
 </div>
 <div id="exercise-b." class="section level3">
 <h3>Exercise b.</h3>
@@ -388,7 +404,19 @@ the data set by <code>region</code>.</em></p>
 <code>setting</code>.</em></p>
 <pre class="r"><code># Delete the comment &#39;#&#39; symbol at the start of the next line and complete the code.
 
-#visitors %&gt;% count(_____, _____)</code></pre>
+visitors %&gt;% count(admission, setting)</code></pre>
+<pre><code>## # A tibble: 9 × 3
+##   admission setting     n
+##   &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt;
+## 1 Charged   I          21
+## 2 Charged   M          12
+## 3 Charged   O           5
+## 4 Free      I          77
+## 5 Free      M           8
+## 6 Free      O          43
+## 7 Members   I          23
+## 8 Members   M         106
+## 9 Members   O          53</code></pre>
 </div>
 </div>
 <div id="question-2" class="section level2">
@@ -425,8 +453,8 @@ the data set by <code>region</code>.</em></p>
 <h3>Exercise c.</h3>
 <p><em>What are the top 10 most visited attractions in 2021?</em></p>
 <pre class="r"><code>#visitors %&gt;% 
-#  arrange(____(____)) %&gt;%
-#  head(n = ____)</code></pre>
+#  arrange(desc(n_2021)) %&gt;%
+#  head(n = 10)</code></pre>
 </div>
 </div>
 <div id="question-4" class="section level2">
@@ -441,15 +469,15 @@ the data set by <code>region</code>.</em></p>
 <div id="exercise-d." class="section level3">
 <h3>Exercise d.</h3>
 <p><em>Which attraction had exactly 565,772 visitors in 2022?</em></p>
-<pre class="r"><code>#visitors %&gt;% filter(___ == ____)</code></pre>
-</div>
-<div id="exercise-e." class="section level3">
-<h3>Exercise e.</h3>
-<p><em>How many attraction had more than 1 million visitors in
-2022?</em></p>
+<pre class="r"><code>#visitors %&gt;% filter(n_2022 = &quot;565772&quot;)
+
+
+### Exercise e.
+
+#How many attraction had more than 1 million visitors in 2022?_</code></pre>
 <pre class="r"><code>#visitors %&gt;% 
-#  filter(____) %&gt;%
-#  count()</code></pre>
+#  filter(n_2022 &gt; 1000000) %&gt;%
+#  count(&quot;attraction&quot;)</code></pre>
 </div>
 </div>
 <div id="question-5" class="section level2">
@@ -475,10 +503,10 @@ visitors in 2022?</em></p>
 <p><em>How many attractions had between 50,000 and 100,000 visitors in
 2022?</em></p>
 <pre class="r"><code>#visitors %&gt;% 
-#  ____(
-#    ______,
-#    ______ ) %&gt;%
-#  count()</code></pre>
+#  filter(
+#    50000 &lt; n_2022,
+#    n_2022 &gt; 100000 ) %&gt;%
+#  count(&quot;attraction&quot;)</code></pre>
 </div>
 <div id="exercise-g." class="section level3">
 <h3>Exercise g.</h3>
